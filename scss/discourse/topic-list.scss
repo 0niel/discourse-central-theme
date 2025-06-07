@@ -37,11 +37,46 @@ table.topic-list:not(.bookmark-list) {
       grid-template-areas: "avatar author actions" "avatar category actions" "avatar title actions" "avatar tags actions" "avatar content actions" "avatar replies actions";
       grid-template-columns: 2rem auto auto;
       gap: 0 1rem;
-      padding: 1rem;
+      padding: 1.5rem;
       background: var(--neutral-100);
       border-top: var(--border-inner);
       border-bottom: 0;
+      border-radius: var(--rounded-lg);
+      margin-bottom: 0.5rem;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       animation: none;
+      overflow: hidden;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 4px;
+        height: 100%;
+        background: linear-gradient(135deg, var(--tertiary), var(--quaternary));
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      &:hover {
+        background: rgba(var(--tertiary-rgb), 0.02);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+
+        &::before {
+          opacity: 1;
+        }
+
+        .topic__title a {
+          color: var(--tertiary);
+        }
+
+        .topic__avatar img.avatar {
+          transform: scale(1.05);
+          box-shadow: 0 4px 12px rgba(var(--tertiary-rgb), 0.2);
+        }
+      }
 
       @include hover($opacity: 0.02);
 
@@ -99,6 +134,14 @@ table.topic-list:not(.bookmark-list) {
             a.title {
               padding: 0;
               color: var(--neutral-10);
+              font-weight: 600;
+              line-height: 1.4;
+              transition: all 0.2s ease;
+
+              &:hover {
+                color: var(--tertiary);
+                text-decoration: none;
+              }
             }
           }
 
@@ -124,6 +167,22 @@ table.topic-list:not(.bookmark-list) {
             .discourse-tags {
               grid-area: tags;
               margin-top: 0.625rem;
+
+              .discourse-tag {
+                background: var(--tertiary-very-low);
+                color: var(--tertiary);
+                border: 1px solid var(--tertiary-low);
+                border-radius: var(--rounded-full);
+                padding: 0.25rem 0.75rem;
+                font-weight: 500;
+                transition: all 0.2s ease;
+
+                &:hover {
+                  background: var(--tertiary-low);
+                  color: var(--tertiary-high);
+                  transform: translateY(-1px);
+                }
+              }
             }
           }
         }
@@ -131,7 +190,8 @@ table.topic-list:not(.bookmark-list) {
 
       &.selected {
         // j/k keyboard nav
-        box-shadow: inset 3px 0 0 var(--d-nav-color--active);
+        box-shadow: inset 4px 0 0 var(--tertiary);
+        background: var(--tertiary-very-low);
       }
 
       @container (max-width: 32rem) {
@@ -159,6 +219,9 @@ table.topic-list:not(.bookmark-list) {
       img.avatar {
         width: 2rem;
         height: auto;
+        border-radius: var(--rounded-full);
+        border: 2px solid transparent;
+        transition: all 0.3s ease;
       }
 
       .avatar-flair {
@@ -171,6 +234,9 @@ table.topic-list:not(.bookmark-list) {
         width: 1rem;
         height: 1rem;
         background-size: contain;
+        border-radius: var(--rounded-full);
+        border: 2px solid var(--neutral-100);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
         &:not([title="team"]) {
           border-radius: var(--rounded-full);
@@ -192,9 +258,16 @@ table.topic-list:not(.bookmark-list) {
 
     a {
       color: var(--neutral-30);
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: var(--tertiary);
+      }
     }
 
     .topic__username {
+      font-weight: 600;
+
       @include label-large;
 
       &:hover {
@@ -232,6 +305,8 @@ table.topic-list:not(.bookmark-list) {
 
   &__excerpt {
     margin-top: 0.375rem;
+    color: var(--primary-medium);
+    line-height: 1.5;
 
     @include body-medium;
   }
@@ -246,6 +321,11 @@ table.topic-list:not(.bookmark-list) {
 
     a {
       color: inherit;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: var(--tertiary);
+      }
     }
 
     &.--reverse {
@@ -263,9 +343,11 @@ table.topic-list:not(.bookmark-list) {
       li {
         position: relative;
         margin: 0 -0.1875rem;
+        transition: transform 0.2s ease;
 
         &:hover {
           z-index: 1;
+          transform: scale(1.1);
         }
 
         img.avatar {
@@ -274,13 +356,20 @@ table.topic-list:not(.bookmark-list) {
           width: 1rem;
           height: auto;
           background: var(--neutral-100);
-          border: 1px solid var(--neutral-100);
+          border: 2px solid var(--neutral-100);
+          border-radius: var(--rounded-full);
+          transition: all 0.2s ease;
+
+          &:hover {
+            border-color: var(--tertiary);
+          }
         }
       }
     }
 
     .topic__last-reply {
       display: inline-flex;
+      font-weight: 500;
 
       @include body-small;
 
@@ -305,13 +394,36 @@ table.topic-list:not(.bookmark-list) {
     padding-left: 1rem;
     list-style: none;
 
-    .topic__reply-button .d-icon {
-      color: var(--neutral-10);
+    .topic__reply-button {
+      .d-icon {
+        color: var(--tertiary);
+        transition: all 0.2s ease;
+      }
+
+      &:hover .d-icon {
+        color: var(--tertiary-high);
+        transform: scale(1.1);
+      }
     }
 
     button,
     a {
+      background: var(--tertiary-very-low);
+      border: 1px solid var(--tertiary-low);
+      color: var(--tertiary);
+      border-radius: var(--rounded-full);
+      padding: 0.375rem 0.75rem;
+      font-weight: 500;
+      transition: all 0.2s ease;
+
       @include button($size: sm);
+
+      &:hover {
+        background: var(--tertiary);
+        color: var(--secondary);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(var(--tertiary-rgb), 0.3);
+      }
     }
   }
 }
@@ -351,8 +463,11 @@ body:not(.user-messages-page) {
       display: flex;
       justify-content: center;
       color: var(--neutral-10);
-      background: var(--neutral-95);
-      border-bottom: var(--border-inner);
+      background: linear-gradient(135deg, var(--tertiary-very-low), var(--quaternary-very-low));
+      border: 1px solid var(--tertiary-low);
+      border-radius: var(--rounded-lg);
+      padding: 1rem;
+      margin: 1rem 0;
 
       @include body-medium;
     }
@@ -368,19 +483,28 @@ body:not(.user-messages-page) {
   margin: 0;
 
   .footer-message {
-    padding: 1rem;
+    padding: 2rem 1rem;
     text-align: center;
+    background: linear-gradient(135deg, rgba(var(--tertiary-rgb), 0.02), rgba(var(--quaternary-rgb), 0.02));
+    border-radius: var(--rounded-xl);
 
     @include body-medium;
 
     h3 {
-      margin: 0;
+      margin: 0 0 0.5rem;
+      color: var(--primary-high);
 
       @include body-medium;
     }
 
     a {
       color: var(--tertiary);
+      font-weight: 600;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: var(--tertiary-high);
+      }
     }
 
     .education {
@@ -391,6 +515,13 @@ body:not(.user-messages-page) {
 
 .--liked.topic__like-button {
   color: var(--love);
+  background: var(--love-low);
+  border-color: var(--love);
+
+  &:hover {
+    background: var(--love);
+    color: var(--secondary);
+  }
 }
 
 .top-title-buttons {
@@ -411,5 +542,8 @@ table.topic-list
   .link-top-line .event-date,
   .header-title .event-date {
     border-color: var(--primary-low);
+    background: var(--tertiary-very-low);
+    color: var(--tertiary);
+    border-radius: var(--rounded-md);
   }
 }
