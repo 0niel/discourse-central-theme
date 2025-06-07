@@ -181,10 +181,41 @@
   }
 }
 
+// Кнопка "Ответить" - акцентная
+.btn.create,
+.btn.reply,
+.btn[data-action="reply"],
+.topic-footer-main-buttons .btn.create {
+  background: var(--tertiary) !important;
+  border: none !important;
+  border-radius: var(--rounded-md);
+  color: var(--secondary) !important;
+  font-weight: 600;
+  transition: all 0.15s ease;
+
+  &:hover {
+    background: var(--tertiary-hover) !important;
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    background: var(--tertiary-high) !important;
+    transform: translateY(0);
+  }
+
+  .d-button-label {
+    color: var(--secondary) !important;
+  }
+
+  .d-icon {
+    color: var(--secondary) !important;
+  }
+}
+
 // Вторичные кнопки
 .btn-default, .btn {
   background: var(--neutral-100) !important;
-  border: 1px solid var(--primary-low) !important;
+  border: none !important;
   border-radius: var(--rounded-md);
   color: var(--primary-high) !important;
   font-weight: 500;
@@ -192,7 +223,6 @@
 
   &:hover {
     background: var(--primary-very-low) !important;
-    border-color: var(--primary-medium) !important;
   }
 
   &:active {
@@ -258,4 +288,52 @@
   &:hover .d-icon {
     color: var(--primary-high) !important;
   }
+}
+
+// Убираем рамки со счетчиков и блоков
+.topic-map,
+.topic-map section,
+.topic-map .buttons .btn,
+.topic-map .map {
+  border: none !important;
+  background: var(--primary-very-low);
+  border-radius: var(--rounded-md);
+}
+
+.topic-map .buttons {
+  border: none !important;
+}
+
+.topic-map .map li {
+  border: none !important;
+}
+
+// Счетчики просмотров и статистика
+.topic-stats,
+.topic-stats .topic-stat {
+  border: none !important;
+  background: transparent;
+}
+
+.number {
+  color: var(--tertiary);
+  font-weight: 600;
+}
+
+// Блоки с информацией
+.information,
+.about,
+.stats-section {
+  border: none !important;
+  background: var(--primary-very-low);
+  border-radius: var(--rounded-lg);
+  padding: 1rem;
+}
+
+// Убираем рамки с бейджей
+.badge-wrapper,
+.badge-card {
+  border: none !important;
+  background: var(--primary-very-low);
+  border-radius: var(--rounded-md);
 }

@@ -18,17 +18,102 @@ blockquote {
   box-shadow: none;
 }
 
+// Улучшенный список топиков с акцентами
 .topic-list {
   .topic-list-header {
     border: none;
+    background: var(--primary-very-low);
+    border-radius: var(--rounded-md) var(--rounded-md) 0 0;
+    
+    th {
+      border: none;
+      padding: 1rem 0.75rem;
+      font-weight: 600;
+      color: var(--primary-high);
+    }
   }
   
   .topic-list-item {
     border: none !important;
+    border-radius: var(--rounded-md);
+    margin-bottom: 0.25rem;
+    transition: all 0.15s ease;
     
     &:hover {
-      background: transparent !important;
+      background: var(--primary-very-low) !important;
+      transform: translateX(4px);
     }
+    
+    // Акцент на заголовке топика
+    .main-link {
+      .title {
+        color: var(--primary-high);
+        font-weight: 600;
+        transition: color 0.15s ease;
+        
+        &:hover {
+          color: var(--tertiary);
+        }
+      }
+    }
+    
+    // Акцентные счетчики
+    .num {
+      color: var(--tertiary);
+      font-weight: 700;
+      font-size: var(--font-up-1);
+    }
+    
+    // Статусы топиков
+    .topic-statuses {
+      .d-icon {
+        color: var(--tertiary);
+      }
+    }
+    
+    // Последняя активность
+    .relative-date {
+      color: var(--primary-medium);
+      font-weight: 500;
+    }
+    
+    // Непрочитанные топики
+    &.unread {
+      background: var(--tertiary-very-low);
+      border-left: 3px solid var(--tertiary);
+      
+      .title {
+        color: var(--tertiary);
+        font-weight: 700;
+      }
+    }
+    
+    // Закрепленные топики
+    &.pinned {
+      background: var(--quaternary-very-low);
+      border-left: 3px solid var(--quaternary);
+    }
+  }
+  
+  tbody {
+    border: none;
+  }
+}
+
+// Убираем рамки с заголовков категорий в сайдбаре
+.sidebar-section-header {
+  border: none !important;
+}
+
+.sidebar-section-header-wrapper {
+  border: none !important;
+  background: transparent !important;
+}
+
+.sidebar-section-link-wrapper {
+  .badge-category__wrapper {
+    border: none !important;
+    background: transparent !important;
   }
 }
 
@@ -36,11 +121,15 @@ blockquote {
 .modal {
   .modal-header {
     border: none;
+    background: var(--primary-very-low);
+    border-radius: var(--rounded-lg) var(--rounded-lg) 0 0;
   }
   
   .modal-footer {
     border: none;
     padding-top: 1rem;
+    background: var(--primary-very-low);
+    border-radius: 0 0 var(--rounded-lg) var(--rounded-lg);
   }
   
   .modal-body {
@@ -80,8 +169,9 @@ blockquote {
     border-radius: var(--rounded-md) var(--rounded-md) 0 0;
     
     &.active {
-      background: var(--neutral-100);
-      border: none;
+      background: var(--tertiary);
+      color: var(--secondary);
+      font-weight: 600;
     }
   }
 }
@@ -93,6 +183,7 @@ blockquote {
   
   &.unread {
     background: var(--tertiary-very-low);
+    border-left: 3px solid var(--tertiary);
   }
 }
 
@@ -104,6 +195,7 @@ blockquote {
   
   .bar {
     border-radius: var(--rounded-full);
+    background: var(--tertiary);
   }
 }
 
@@ -234,4 +326,89 @@ blockquote {
   background: rgba(0, 0, 0, 0.8);
   color: white;
   font-size: var(--font-down-1);
+}
+
+// Улучшенные карточки пользователей
+.user-card {
+  border: none;
+  border-radius: var(--rounded-lg);
+  background: var(--neutral-100);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  
+  .card-content {
+    padding: 1.5rem;
+  }
+  
+  .user-card-avatar {
+    .avatar {
+      border: 3px solid var(--tertiary);
+    }
+  }
+}
+
+// Современные бейджи
+.badge-card {
+  border: none;
+  background: var(--primary-very-low);
+  border-radius: var(--rounded-lg);
+  transition: all 0.15s ease;
+  
+  &:hover {
+    background: var(--primary-low);
+    transform: translateY(-2px);
+  }
+}
+
+// Акцентные элементы
+.featured-topic {
+  border-left: 3px solid var(--tertiary);
+  background: var(--tertiary-very-low);
+}
+
+.highlighted {
+  background: var(--quaternary-very-low);
+  border-radius: var(--rounded-md);
+  padding: 0.5rem;
+}
+
+// Улучшенная пагинация
+.paginated-topics-list {
+  .pagination {
+    border: none;
+    
+    .page-numbers {
+      border: none;
+      border-radius: var(--rounded-md);
+      background: var(--primary-very-low);
+      
+      &.current {
+        background: var(--tertiary);
+        color: var(--secondary);
+      }
+      
+      &:hover {
+        background: var(--primary-low);
+      }
+    }
+  }
+}
+
+// Современные формы
+.form-horizontal {
+  .control-group {
+    border: none;
+    
+    .controls {
+      input, textarea, select {
+        border: none;
+        background: var(--primary-very-low);
+        border-radius: var(--rounded-md);
+        
+        &:focus {
+          background: var(--neutral-100);
+          border: 1px solid var(--tertiary);
+        }
+      }
+    }
+  }
 }

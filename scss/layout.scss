@@ -141,7 +141,8 @@ body {
         padding: 0;
         background: var(--neutral-100);
         border: none;
-        border-radius: var(--rounded-lg);
+        border-radius: var(--rounded-xl);
+        overflow: hidden;
 
         @include viewport.until(lg) {
           margin-top: 1rem;
@@ -302,4 +303,107 @@ pre,
 code {
   border: none;
   border-radius: var(--rounded-md);
+}
+
+// Ультра-современные улучшения для постов
+.topic-post {
+  .post-menu-area {
+    .actions {
+      .btn {
+        border: none;
+        background: transparent;
+        border-radius: var(--rounded-md);
+        
+        &:hover {
+          background: var(--primary-very-low);
+        }
+      }
+    }
+  }
+}
+
+// Современные breadcrumbs
+.breadcrumb {
+  background: transparent;
+  border: none;
+  
+  li {
+    &::after {
+      content: "→";
+      color: var(--primary-medium);
+      margin: 0 0.5rem;
+    }
+    
+    &:last-child::after {
+      display: none;
+    }
+  }
+  
+  a {
+    color: var(--primary-medium);
+    text-decoration: none;
+    
+    &:hover {
+      color: var(--tertiary);
+    }
+  }
+}
+
+// Улучшенные списки
+.topic-list {
+  .topic-list-data {
+    padding: 0.75rem;
+  }
+}
+
+// Современные статусы
+.topic-status {
+  border: none;
+  background: var(--tertiary-very-low);
+  color: var(--tertiary);
+  border-radius: var(--rounded-full);
+  padding: 0.25rem 0.75rem;
+  font-size: var(--font-down-1);
+  font-weight: 600;
+}
+
+// Акцентные элементы
+.featured-link {
+  border-left: 3px solid var(--tertiary);
+  padding-left: 1rem;
+  background: var(--tertiary-very-low);
+  border-radius: 0 var(--rounded-md) var(--rounded-md) 0;
+}
+
+// Современные загрузчики
+.loading-spinner {
+  border: 2px solid var(--primary-low);
+  border-top: 2px solid var(--tertiary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+// Улучшенные метки времени
+.relative-date,
+.age {
+  color: var(--primary-medium);
+  font-weight: 500;
+  font-size: var(--font-down-1);
+}
+
+// Современные счетчики
+.badge-notification {
+  background: var(--love);
+  color: var(--secondary);
+  border: none;
+  border-radius: var(--rounded-full);
+  font-weight: 700;
+  min-width: 1.25rem;
+  height: 1.25rem;
+  font-size: var(--font-down-2);
 }
