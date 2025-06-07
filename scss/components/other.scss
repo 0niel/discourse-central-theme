@@ -9,3 +9,229 @@ blockquote {
   color: var(--neutral-10);
   background: var(--neutral-95);
 }
+
+// Ультра-современные улучшения
+
+// Убираем все лишние границы и тени
+.d-header {
+  border: none;
+  box-shadow: none;
+}
+
+.topic-list {
+  .topic-list-header {
+    border: none;
+  }
+  
+  .topic-list-item {
+    border: none !important;
+    
+    &:hover {
+      background: transparent !important;
+    }
+  }
+}
+
+// Современные модальные окна
+.modal {
+  .modal-header {
+    border: none;
+  }
+  
+  .modal-footer {
+    border: none;
+    padding-top: 1rem;
+  }
+  
+  .modal-body {
+    padding: 1.5rem;
+  }
+}
+
+// Чистые таблицы
+table {
+  border: none;
+  
+  th, td {
+    border: none;
+    border-bottom: 1px solid var(--primary-low);
+  }
+  
+  th {
+    background: var(--primary-very-low);
+    font-weight: 600;
+  }
+}
+
+// Минималистичные цитаты
+blockquote {
+  border: none;
+  border-left: 3px solid var(--tertiary);
+  background: var(--primary-very-low);
+  border-radius: 0 var(--rounded-md) var(--rounded-md) 0;
+}
+
+// Современные вкладки
+.nav-tabs {
+  border: none;
+  
+  li a {
+    border: none;
+    border-radius: var(--rounded-md) var(--rounded-md) 0 0;
+    
+    &.active {
+      background: var(--neutral-100);
+      border: none;
+    }
+  }
+}
+
+// Чистые уведомления
+.notification {
+  border: none;
+  border-radius: var(--rounded-md);
+  
+  &.unread {
+    background: var(--tertiary-very-low);
+  }
+}
+
+// Современные прогресс-бары
+.progress {
+  border: none;
+  border-radius: var(--rounded-full);
+  background: var(--primary-very-low);
+  
+  .bar {
+    border-radius: var(--rounded-full);
+  }
+}
+
+// Убираем границы с поиска
+.search-input {
+  border: none !important;
+  border-radius: var(--rounded-full) !important;
+  background: var(--primary-very-low) !important;
+  
+  &:focus {
+    background: var(--neutral-100) !important;
+    border: 1px solid var(--tertiary) !important;
+  }
+}
+
+// Современные меню
+.menu-panel {
+  border: none;
+  border-radius: var(--rounded-lg);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+// Чистые аватары в постах
+.topic-avatar {
+  .avatar {
+    border: none;
+  }
+}
+
+// Убираем лишние разделители в постах
+.topic-body {
+  .topic-meta-data {
+    border: none;
+  }
+}
+
+// Современные теги
+.discourse-tag {
+  border: none;
+  background: var(--tertiary-very-low);
+  color: var(--tertiary);
+  border-radius: var(--rounded-full);
+  padding: 0.25rem 0.75rem;
+  font-size: var(--font-down-1);
+  font-weight: 500;
+  
+  &:hover {
+    background: var(--tertiary-low);
+    color: var(--tertiary-hover);
+  }
+}
+
+// Чистые кнопки действий
+.actions {
+  .btn {
+    border: none;
+    
+    &:not(.btn-primary):not(.btn-danger) {
+      background: transparent;
+      color: var(--primary-medium);
+      
+      &:hover {
+        background: var(--primary-very-low);
+        color: var(--primary-high);
+      }
+    }
+  }
+}
+
+// Современные select элементы
+.select-kit .select-kit-header {
+  border: none !important;
+  background: var(--primary-very-low) !important;
+  border-radius: var(--rounded-md);
+  
+  &:hover {
+    background: var(--primary-low) !important;
+  }
+}
+
+.select-kit .select-kit-body {
+  border: none;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+// Убираем границы с кода
+.hljs {
+  border: none;
+  border-radius: var(--rounded-md);
+}
+
+// Чистые загрузочные индикаторы  
+.loading-container {
+  .spinner {
+    border: 2px solid var(--primary-low);
+    border-top: 2px solid var(--tertiary);
+  }
+}
+
+// Современные переключатели
+.toggle-switch {
+  .toggle-switch-checkbox {
+    border: none;
+    background: var(--primary-low);
+    
+    &:checked {
+      background: var(--tertiary);
+    }
+  }
+}
+
+// Убираем границы с панелей
+.panel {
+  border: none;
+  border-radius: var(--rounded-lg);
+  background: var(--neutral-100);
+}
+
+// Чистые иконки
+.d-icon {
+  color: var(--primary-medium);
+}
+
+// Современные tooltips
+.tooltip {
+  border: none;
+  border-radius: var(--rounded-md);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  font-size: var(--font-down-1);
+}

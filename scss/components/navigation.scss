@@ -21,7 +21,7 @@ body:not(.admin-interface) {
       height: var(--mobile-nav-h);
       padding: 0;
       background: var(--neutral-100);
-      border-top: 1px solid var(--primary-low);
+      border-top: none;
 
       .sidebar-container {
         padding-top: 0;
@@ -89,7 +89,7 @@ body:not(.admin-interface) {
     --d-sidebar-highlight-color: var(--tertiary);
     font-size: var(--font-down-1);
     background: var(--neutral-100);
-    border-right: 1px solid var(--primary-low);
+    border: none;
 
     .sidebar-container {
       padding: 0.75rem 0;
@@ -139,7 +139,7 @@ body:not(.admin-interface) {
   .sidebar-more-section-links-details-content {
     padding: 0.5rem;
     background: var(--neutral-100);
-    border: 1px solid var(--primary-low);
+    border: none;
     border-radius: var(--rounded-md);
   }
 
@@ -197,11 +197,7 @@ body:not(.admin-interface) {
   .sidebar-section {
     margin-bottom: 0.75rem;
     padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--primary-low);
-
-    &[data-section-name="categories"] {
-      border: none;
-    }
+    border: none;
 
     &:last-child {
       border-bottom: none;
@@ -518,7 +514,7 @@ body:not(.admin-interface) {
   order: -1;
   box-sizing: border-box;
   padding: 1rem 1rem 1rem 0;
-  border-bottom: 1px solid var(--primary-low);
+  border: none;
 
   &__title {
     display: flex;
@@ -598,7 +594,7 @@ body:not(.admin-interface) {
     color: var(--primary-high);
     text-align: right;
     background: var(--primary-very-low);
-    border: 1px solid var(--primary-low);
+    border: none;
     border-radius: var(--rounded-md);
     transition: background-color 0.15s ease;
 

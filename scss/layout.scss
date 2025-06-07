@@ -140,7 +140,7 @@ body {
         margin-bottom: 2rem;
         padding: 0;
         background: var(--neutral-100);
-        border: 1px solid var(--primary-low);
+        border: none;
         border-radius: var(--rounded-lg);
 
         @include viewport.until(lg) {
@@ -173,30 +173,27 @@ body {
 #user-card {
   background-color: var(--neutral-100);
   border-radius: var(--rounded-lg);
-  border: 1px solid var(--primary-low);
+  border: none;
 }
 
-// Чистые области контента
+// Убираем эффекты с постов
 .topic-body {
-  background: var(--neutral-100);
-  border-radius: var(--rounded-md);
-  margin-bottom: 0.75rem;
-  transition: background-color 0.15s ease;
-
-  &:hover {
-    background: var(--primary-very-low);
-  }
+  background: transparent;
 }
 
-// Упрощенные посты
 .topic-post {
-  border-radius: var(--rounded-md);
-  margin-bottom: 1rem;
-  transition: background-color 0.15s ease;
+  background: transparent;
+  border: none;
+}
 
-  &:hover {
-    background: var(--primary-very-low);
-  }
+// Убираем границы с основных элементов
+.topic-list-item,
+.topic-list tbody tr {
+  border: none !important;
+}
+
+.topic-list {
+  border: none;
 }
 
 // Минималистичные формы
@@ -214,4 +211,95 @@ body {
       }
     }
   }
+}
+
+// Убираем лишние границы
+.menu-panel,
+.d-menu {
+  border: none;
+  border-radius: var(--rounded-lg);
+}
+
+.topic-timeline .timeline-container {
+  border: none;
+}
+
+.topic-meta-data {
+  border: none;
+}
+
+// Современные карточки без границ
+.user-card,
+.group-card {
+  border: none;
+  border-radius: var(--rounded-lg);
+}
+
+// Убираем границы с навигации
+.nav-pills {
+  border: none;
+  
+  > li > a {
+    border: none;
+    border-radius: var(--rounded-md);
+    
+    &.active {
+      background: var(--tertiary);
+      color: var(--secondary);
+    }
+  }
+}
+
+// Современные входы
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea,
+.d-editor-input {
+  border: 1px solid var(--primary-low) !important;
+  border-radius: var(--rounded-md) !important;
+  transition: border-color 0.15s ease;
+  
+  &:focus {
+    border-color: var(--tertiary) !important;
+    outline: none;
+  }
+}
+
+// Убираем границы с селектов
+.select-kit .select-kit-body {
+  border: none;
+  border-radius: var(--rounded-md);
+}
+
+// Современные уведомления
+.alert {
+  border: none;
+  border-radius: var(--rounded-md);
+}
+
+// Убираем все лишние разделители
+hr {
+  border: none;
+  height: 1px;
+  background: var(--primary-low);
+  margin: 2rem 0;
+}
+
+// Чистые заголовки
+.topic-title {
+  border: none;
+  
+  .topic-statuses {
+    .d-icon {
+      color: var(--primary-medium);
+    }
+  }
+}
+
+// Убираем границы с кода
+pre,
+code {
+  border: none;
+  border-radius: var(--rounded-md);
 }

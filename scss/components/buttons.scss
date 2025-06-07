@@ -9,7 +9,7 @@
 
   @if $style == primary {
     background: var(--tertiary);
-    color: var(--secondary);
+    color: var(--secondary) !important;
 
     &:hover {
       background: var(--tertiary-hover);
@@ -20,7 +20,7 @@
     }
 
     span {
-      color: var(--secondary);
+      color: var(--secondary) !important;
       font-weight: 600;
     }
   }
@@ -28,7 +28,7 @@
   @if $style == tertiary {
     background-color: var(--neutral-100);
     border: 1px solid var(--primary-low);
-    color: var(--primary-high);
+    color: var(--primary-high) !important;
 
     &:hover {
       background-color: var(--primary-very-low);
@@ -40,7 +40,7 @@
     }
 
     span {
-      color: var(--primary-high);
+      color: var(--primary-high) !important;
     }
   }
 
@@ -97,7 +97,7 @@
   padding: 0 0.375rem;
   color: var(--primary-high);
   background-color: var(--primary-very-low);
-  border: 1px solid var(--primary-low);
+  border: none;
   border-radius: var(--rounded-md);
   font-weight: 500;
   transition: background-color 0.15s ease;
@@ -121,6 +121,31 @@
   @include button($style: icon);
 }
 
+// Исправляем дропдаун кнопки
+.select-kit.single-select.dropdown-select-box .select-kit-header {
+  background: var(--neutral-100);
+  border: 1px solid var(--primary-low);
+  border-radius: var(--rounded-md);
+  color: var(--primary-high) !important;
+  height: 2.5rem;
+  padding: 0 1rem;
+  transition: all 0.15s ease;
+
+  &:hover {
+    background: var(--primary-very-low);
+    border-color: var(--primary-medium);
+  }
+
+  .select-kit-header-wrapper {
+    justify-content: space-between;
+    color: var(--primary-high) !important;
+  }
+
+  .d-icon {
+    color: var(--primary-medium) !important;
+  }
+}
+
 .select-kit.single-select.dropdown-select-box .select-kit-header.btn-icon {
   @include button($style: icon);
 
@@ -134,57 +159,103 @@
   @include button($style: tertiary);
 }
 
-// Чистые кнопки без лишних эффектов
+// Основные кнопки
 .btn-primary {
-  background: var(--tertiary);
-  border: none;
+  background: var(--tertiary) !important;
+  border: none !important;
   border-radius: var(--rounded-md);
-  color: var(--secondary);
+  color: var(--secondary) !important;
   font-weight: 600;
   transition: background-color 0.15s ease;
 
   &:hover {
-    background: var(--tertiary-hover);
+    background: var(--tertiary-hover) !important;
   }
 
   &:active {
-    background: var(--tertiary-high);
+    background: var(--tertiary-high) !important;
+  }
+
+  .d-button-label {
+    color: var(--secondary) !important;
   }
 }
 
 // Вторичные кнопки
-.btn-default {
-  background: var(--neutral-100);
-  border: 1px solid var(--primary-low);
+.btn-default, .btn {
+  background: var(--neutral-100) !important;
+  border: 1px solid var(--primary-low) !important;
   border-radius: var(--rounded-md);
-  color: var(--primary-high);
+  color: var(--primary-high) !important;
   font-weight: 500;
   transition: all 0.15s ease;
 
   &:hover {
-    background: var(--primary-very-low);
-    border-color: var(--primary-medium);
+    background: var(--primary-very-low) !important;
+    border-color: var(--primary-medium) !important;
   }
 
   &:active {
-    background: var(--primary-low);
+    background: var(--primary-low) !important;
+  }
+
+  .d-button-label {
+    color: var(--primary-high) !important;
   }
 }
 
 // Кнопки опасных действий
 .btn-danger {
-  background: var(--love);
-  border: none;
+  background: var(--love) !important;
+  border: none !important;
   border-radius: var(--rounded-md);
-  color: var(--secondary);
+  color: var(--secondary) !important;
   font-weight: 600;
   transition: background-color 0.15s ease;
 
   &:hover {
-    background: var(--love-low);
+    background: var(--love-low) !important;
   }
 
   &:active {
-    background: var(--love-high);
+    background: var(--love-high) !important;
+  }
+
+  .d-button-label {
+    color: var(--secondary) !important;
+  }
+}
+
+// Flat кнопки
+.btn-flat {
+  background: transparent !important;
+  border: none !important;
+  color: var(--primary-high) !important;
+  
+  &:hover {
+    background: var(--primary-very-low) !important;
+  }
+
+  .d-button-label {
+    color: var(--primary-high) !important;
+  }
+}
+
+// Иконочные кнопки
+.btn-icon {
+  background: transparent !important;
+  border: none !important;
+  border-radius: var(--rounded-md);
+  
+  &:hover {
+    background: var(--primary-very-low) !important;
+  }
+
+  .d-icon {
+    color: var(--primary-medium) !important;
+  }
+
+  &:hover .d-icon {
+    color: var(--primary-high) !important;
   }
 }
