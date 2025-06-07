@@ -26,6 +26,7 @@ export default class StickySidebar extends Component {
   @tracked top = 0;
   @tracked bottom = 0;
   @tracked position = "relative";
+  @tracked transition = "all 0.2s cubic-bezier(0.4, 0, 0.2, 1)";
   headerHeight = 72;
   offset = 0;
   prevScrollTop = 0;
@@ -54,6 +55,7 @@ export default class StickySidebar extends Component {
             this.position = "fixed";
             this.top = `${this.headerHeight}px`;
             this.bottom = "unset";
+            this.transition = "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)";
           }
           break;
         case "pinned":
@@ -62,6 +64,7 @@ export default class StickySidebar extends Component {
             this.position = "relative";
             this.top = 0;
             this.bottom = "unset";
+            this.transition = "all 0.2s cubic-bezier(0.4, 0, 0.2, 1)";
           }
           break;
         case "bottom":
@@ -69,6 +72,7 @@ export default class StickySidebar extends Component {
           const top = element.getBoundingClientRect().top;
           this.position = "relative";
           this.top = top + scrollY - this.yOrigin + "px";
+          this.transition = "all 0.2s cubic-bezier(0.4, 0, 0.2, 1)";
           break;
       }
     } else if (scrollingDown && !isScrolledToBottom) {
@@ -79,6 +83,7 @@ export default class StickySidebar extends Component {
             this.position = "fixed";
             this.bottom = 0;
             this.top = "unset";
+            this.transition = "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)";
           }
           break;
         case "pinned":
@@ -87,6 +92,7 @@ export default class StickySidebar extends Component {
           const top = element.getBoundingClientRect().top;
           this.position = "relative";
           this.top = top + scrollY - this.yOrigin;
+          this.transition = "all 0.2s cubic-bezier(0.4, 0, 0.2, 1)";
           break;
       }
     }
@@ -116,6 +122,8 @@ export default class StickySidebar extends Component {
             this.top
             "; bottom: "
             this.bottom
+            "; transition: "
+            this.transition
             ""
           )
         }}
