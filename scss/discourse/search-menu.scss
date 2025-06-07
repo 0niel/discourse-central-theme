@@ -20,7 +20,12 @@
 
         .search-menu-panel {
           z-index: 0;
-          box-shadow: var(--shadow-menu-panel);
+          background: rgba(var(--secondary-rgb), 0.95);
+          backdrop-filter: blur(20px);
+          border: 1px solid rgba(var(--primary-low-rgb), 0.3);
+          border-radius: var(--rounded-xl);
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+          animation: slideDown 0.3s ease-out;
         }
 
         .search-icon {
@@ -42,9 +47,12 @@
             padding: 0;
             color: inherit;
             border-radius: var(--rounded-full);
+            transition: all 0.2s ease;
 
             &:hover {
-              background: var(--neutral-90);
+              background: var(--tertiary-very-low);
+              color: var(--tertiary);
+              transform: scale(1.1);
             }
 
             &:visited {
@@ -62,10 +70,12 @@
             color: inherit;
             border: 0;
             border-radius: var(--rounded-full);
-            transition: none;
+            transition: all 0.2s ease;
 
             &:hover {
-              background: var(--neutral-90);
+              background: var(--tertiary-very-low);
+              color: var(--tertiary);
+              transform: scale(1.1);
             }
           }
         }
@@ -76,7 +86,14 @@
 
           .search-result-topic {
             box-sizing: border-box;
-            padding: 0.5rem;
+            padding: 0.75rem;
+            border-radius: var(--rounded-lg);
+            transition: all 0.2s ease;
+
+            &:hover {
+              background: var(--tertiary-very-low);
+              transform: translateX(4px);
+            }
           }
 
           .search-menu-initial-options {
@@ -92,6 +109,14 @@
                   display: flex;
                   column-gap: 0.5rem;
                   align-items: center;
+                  padding: 0.5rem 0.75rem;
+                  border-radius: var(--rounded-lg);
+                  transition: all 0.2s ease;
+
+                  &:hover {
+                    background: var(--tertiary-very-low);
+                    color: var(--tertiary);
+                  }
 
                   span[aria-label="Search"] {
                     display: none;
@@ -108,17 +133,36 @@
 
         .search-menu-container {
           box-sizing: border-box;
-          background: var(--neutral-100);
-          border: var(--border-outer);
+          background: rgba(var(--secondary-rgb), 0.95);
+          backdrop-filter: blur(20px);
+          border: 1px solid rgba(var(--primary-low-rgb), 0.3);
           border-radius: var(--rounded-full);
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          position: relative;
+          overflow: hidden;
+
+          &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(var(--tertiary-rgb), 0.02) 0%, rgba(var(--quaternary-rgb), 0.02) 100%);
+            pointer-events: none;
+          }
 
           &:hover {
-            background: var(--neutral-100);
+            background: rgba(var(--secondary-rgb), 0.98);
+            border-color: var(--tertiary-low);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
           }
 
           &:has(.search-menu-panel) {
-            background: none;
+            background: transparent;
             box-shadow: none;
+            border-radius: var(--rounded-xl);
 
             .searching {
               display: flex;
@@ -127,10 +171,14 @@
 
           .search-link {
             padding: 0.5rem 0.875rem;
+            border-radius: var(--rounded-lg);
+            transition: all 0.2s ease;
 
             &:hover,
             &:focus {
-              background-color: var(--neutral-95);
+              background-color: var(--tertiary-very-low);
+              color: var(--tertiary);
+              transform: translateX(2px);
             }
           }
         }
@@ -141,6 +189,9 @@
           border: none;
 
           h4 {
+            color: var(--primary-medium);
+            margin-bottom: 0.5rem;
+
             @include title-medium;
           }
         }
@@ -163,12 +214,32 @@
 
           #search-term {
             padding: 0.5rem 0;
+            color: var(--primary-high);
+            font-weight: 500;
+
+            &::placeholder {
+              color: var(--primary-medium);
+              opacity: 0.7;
+            }
+
+            &:focus {
+              color: var(--primary-high);
+            }
           }
 
           .search-context {
             flex-shrink: 0;
             height: unset;
-            padding: 0.25em;
+            padding: 0.25em 0.5em;
+            background: var(--tertiary-very-low);
+            color: var(--tertiary);
+            border-radius: var(--rounded-md);
+            font-weight: 500;
+            transition: all 0.2s ease;
+
+            &:hover {
+              background: var(--tertiary-low);
+            }
           }
 
           .search-context ~ #search-term {
@@ -176,6 +247,17 @@
           }
         }
       }
+    }
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 }
@@ -191,20 +273,46 @@
 .search-menu .searching .spinner,
 .search-menu-container .searching .spinner {
   margin-right: 1rem;
+  color: var(--tertiary);
 }
 
 .search-menu .heading,
 .search-menu-container .heading {
   padding: 0 0.75rem;
+  color: var(--primary-medium);
+  font-weight: 600;
 }
 
-// Search page
-
-// AI
+// Search page enhancements
 .semantic-search__container.search-results {
   margin: 0;
+  background: rgba(var(--secondary-rgb), 0.5);
+  backdrop-filter: blur(10px);
+  border-radius: var(--rounded-xl);
+  padding: 1rem;
 }
 
 .search-results:has(.fps-result-entries:empty) {
   padding: 0;
+}
+
+// Enhanced search result styling
+.fps-result {
+  border-radius: var(--rounded-lg);
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+
+  &:hover {
+    background: var(--tertiary-very-low);
+    border-color: var(--tertiary-low);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
+
+  .search-result-topic {
+    .search-result-post {
+      background: transparent;
+      border-radius: var(--rounded-md);
+    }
+  }
 }
