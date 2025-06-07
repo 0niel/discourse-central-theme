@@ -20,10 +20,8 @@ body:not(.admin-interface) {
       box-sizing: border-box;
       height: var(--mobile-nav-h);
       padding: 0;
-      background: rgba(var(--neutral-100-rgb), 0.95);
-      backdrop-filter: blur(20px);
-      border-top: var(--border-outer);
-      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+      background: var(--neutral-100);
+      border-top: 1px solid var(--primary-low);
 
       .sidebar-container {
         padding-top: 0;
@@ -85,18 +83,16 @@ body:not(.admin-interface) {
   }
 
   .sidebar-wrapper {
-    --d-sidebar-section-link-prefix-margin-right: 1rem;
+    --d-sidebar-section-link-prefix-margin-right: 0.75rem;
     --d-sidebar-link-icon-color: var(--primary);
-    --d-sidebar-section-link-icon-size: 1.25em;
+    --d-sidebar-section-link-icon-size: 1.125em;
     --d-sidebar-highlight-color: var(--tertiary);
     font-size: var(--font-down-1);
     background: var(--neutral-100);
-    border-radius: var(--rounded-xl);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    backdrop-filter: blur(10px);
+    border-right: 1px solid var(--primary-low);
 
     .sidebar-container {
-      padding: 1.5rem 0;
+      padding: 0.75rem 0;
       border: none;
     }
 
@@ -106,27 +102,23 @@ body:not(.admin-interface) {
   }
 
   .sidebar-section-link-wrapper {
-    margin-bottom: 0.25rem;
-    border-radius: var(--rounded-lg);
-    transition: all 0.2s ease;
+    margin-bottom: 1px;
+    transition: background-color 0.15s ease;
 
     &:hover {
       background: var(--primary-very-low);
-      transform: translateX(2px);
     }
 
     .sidebar-section-link {
-      height: 2.75rem;
-      padding: 0.75rem 1rem;
-      border-radius: var(--rounded-lg);
-      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      height: 2.25rem;
+      padding: 0.5rem 0.75rem;
+      border-radius: 0;
+      transition: background-color 0.15s ease;
 
       &.active {
         font-weight: 600;
-        background: linear-gradient(135deg, var(--tertiary-very-low), var(--quaternary-very-low));
-        border: 1px solid var(--tertiary-low);
+        background: var(--tertiary-very-low);
         color: var(--tertiary);
-        box-shadow: 0 2px 8px rgba(var(--tertiary-rgb), 0.15);
         
         .sidebar-section-link-prefix.icon {
           color: var(--tertiary);
@@ -134,7 +126,7 @@ body:not(.admin-interface) {
       }
 
       &:hover:not(.active) {
-        background: var(--primary-very-low);
+        background: transparent;
         color: var(--primary-high);
       }
     }
@@ -145,10 +137,10 @@ body:not(.admin-interface) {
   }
 
   .sidebar-more-section-links-details-content {
-    padding: 0.75rem;
+    padding: 0.5rem;
     background: var(--neutral-100);
-    border-radius: var(--rounded-lg);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--primary-low);
+    border-radius: var(--rounded-md);
   }
 
   .sidebar-more-section-links-details-content-footer {
@@ -160,8 +152,8 @@ body:not(.admin-interface) {
   }
 
   .sidebar-section-header-button {
-    border-radius: var(--rounded-full);
-    transition: all 0.2s ease;
+    border-radius: 0;
+    transition: background-color 0.15s ease;
 
     &:hover {
       background: var(--primary-very-low);
@@ -169,16 +161,16 @@ body:not(.admin-interface) {
   }
 
   .sidebar-section-header-text {
-    font-size: var(--font-down-1);
+    font-size: var(--font-down-2);
     font-weight: 600;
-    color: var(--primary-high);
+    color: var(--primary-medium);
     text-transform: uppercase;
     letter-spacing: 0.5px;
   }
 
   .sidebar-footer-wrapper .sidebar-footer-actions {
     margin-left: 0;
-    padding: 1rem;
+    padding: 0.75rem;
   }
 
   .sidebar-footer-actions-keyboard-shortcuts {
@@ -186,9 +178,9 @@ body:not(.admin-interface) {
   }
 
   .sidebar-section-wrapper .sidebar-section-header-wrapper {
-    margin-bottom: 0.75rem;
-    padding: 0.5rem 1rem;
-    border-radius: var(--rounded-md);
+    margin-bottom: 0.25rem;
+    padding: 0.375rem 0.75rem;
+    border-radius: 0;
 
     .discourse-no-touch & {
       &:hover,
@@ -203,8 +195,8 @@ body:not(.admin-interface) {
   }
 
   .sidebar-section {
-    margin-bottom: 1.5rem;
-    padding-bottom: 1rem;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
     border-bottom: 1px solid var(--primary-low);
 
     &[data-section-name="categories"] {
@@ -217,13 +209,13 @@ body:not(.admin-interface) {
   }
 
   .sidebar-section-link-prefix.icon {
-    font-size: var(--font-up-2);
+    font-size: var(--font-up-1);
     color: var(--primary-medium);
-    transition: color 0.2s ease;
+    transition: color 0.15s ease;
   }
 
   .sidebar-section-wrapper {
-    padding-bottom: 1em;
+    padding-bottom: 0.5rem;
 
     &[data-section-name="chat-channels"],
     &[data-section-name="chat-dms"],
@@ -247,8 +239,8 @@ body:not(.admin-interface) {
           justify-content: center;
           width: 1rem;
           height: 1rem;
-          padding-left: 0.25em;
-          font-size: 1rem;
+          padding-left: 0.125em;
+          font-size: 0.875rem;
           background: none;
         }
       }
@@ -271,7 +263,7 @@ body:not(.admin-interface) {
     }
   }
 
-  // Enhanced mobile navigation
+  // Компактная мобильная навигация
   @media screen and (width <= 1000px) {
     .sidebar-wrapper {
       .sidebar-section-wrapper .sidebar-section-header-wrapper {
@@ -308,26 +300,24 @@ body:not(.admin-interface) {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        height: 3.75rem;
-        margin: 0.25rem;
-        border-radius: var(--rounded-xl);
-        transition: all 0.2s ease;
+        height: 3.5rem;
+        margin: 0.125rem;
+        border-radius: var(--rounded-md);
+        transition: background-color 0.15s ease;
 
         .sidebar-section-link-content-text {
-          max-width: 6em;
+          max-width: 5em;
           font-size: var(--font-down-2);
           font-weight: 500;
         }
 
         &.active {
-          background: linear-gradient(135deg, var(--tertiary-very-low), var(--quaternary-very-low));
-          border: 1px solid var(--tertiary-low);
+          background: var(--tertiary-very-low);
           color: var(--tertiary);
 
           .sidebar-section-link-prefix.icon {
-            background: var(--tertiary-very-low);
+            background: transparent;
             color: var(--tertiary);
-            transform: scale(1.1);
           }
         }
 
@@ -335,7 +325,6 @@ body:not(.admin-interface) {
           &:hover,
           &:focus {
             background: var(--primary-very-low);
-            transform: translateY(-2px);
           }
         }
       }
@@ -347,30 +336,30 @@ body:not(.admin-interface) {
       }
 
       .sidebar-section-link-prefix.icon {
-        width: 1.5rem;
-        height: 1.5rem;
-        margin: 0 0 0.25rem 0;
-        padding: 0.5rem;
-        font-size: var(--font-up-3);
-        border-radius: var(--rounded-xl);
+        width: 1.25rem;
+        height: 1.25rem;
+        margin: 0 0 0.125rem 0;
+        padding: 0.25rem;
+        font-size: var(--font-up-2);
+        border-radius: var(--rounded-md);
         background: var(--primary-very-low);
-        transition: all 0.2s ease;
+        transition: all 0.15s ease;
       }
 
       .sidebar-section-link-content-text {
-        font-size: var(--font-down-1);
+        font-size: var(--font-down-2);
       }
 
       .sidebar-section-link-suffix {
         position: absolute;
-        top: 0.25rem;
-        right: 0.25rem;
+        top: 0.125rem;
+        right: 0.125rem;
         background: var(--love);
         color: var(--secondary);
         border-radius: var(--rounded-full);
-        min-width: 1.25rem;
-        height: 1.25rem;
-        font-size: var(--font-down-2);
+        min-width: 1rem;
+        height: 1rem;
+        font-size: var(--font-down-3);
         font-weight: 600;
         display: flex;
         align-items: center;
@@ -429,10 +418,8 @@ body:not(.admin-interface) {
   display: grid;
   width: 100%;
   margin: 0;
-  padding: 1.5rem;
+  padding: 1rem;
   background: var(--neutral-100);
-  border-radius: var(--rounded-lg);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 
   & > *:not(:last-child) {
     margin: 0;
@@ -443,7 +430,7 @@ body:not(.admin-interface) {
   }
 
   h2 {
-    font-weight: 700;
+    font-weight: 600;
     color: var(--primary-high);
 
     &::before {
@@ -476,7 +463,7 @@ body:not(.admin-interface) {
 
   .navigation-category & {
     grid-template: "title title notifications edit . list" auto ". description description description description list" auto / 2rem auto 2.5rem 2.5rem 1fr auto;
-    gap: 0.75rem 1.25rem;
+    gap: 0.5rem 1rem;
   }
 
   .breadcrumbs {
@@ -507,11 +494,10 @@ body:not(.admin-interface) {
   .notifications-tracking-trigger {
     grid-area: notifications;
     border-radius: var(--rounded-full);
-    transition: all 0.2s ease;
+    transition: background-color 0.15s ease;
 
     &:hover {
       background: var(--primary-very-low);
-      transform: scale(1.05);
     }
   }
 
@@ -527,16 +513,16 @@ body:not(.admin-interface) {
 
 .breadcrumbs {
   display: flex;
-  gap: 2.5rem;
+  gap: 2rem;
   align-items: flex-start;
   order: -1;
   box-sizing: border-box;
-  padding: 1.5rem 1.5rem 1.5rem 0;
-  border-bottom: var(--border-inner);
+  padding: 1rem 1rem 1rem 0;
+  border-bottom: 1px solid var(--primary-low);
 
   &__title {
     display: flex;
-    gap: 1.25rem;
+    gap: 1rem;
     align-items: center;
     margin: 0;
 
@@ -546,7 +532,7 @@ body:not(.admin-interface) {
       font-size: inherit;
 
       .badge-category {
-        gap: 0.75rem;
+        gap: 0.5rem;
         align-items: baseline;
 
         &::before {
@@ -563,10 +549,10 @@ body:not(.admin-interface) {
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 0 0.5rem;
+      padding: 0 0.375rem;
       font-size: 24px;
       border-radius: var(--rounded-md);
-      transition: all 0.2s ease;
+      transition: background-color 0.15s ease;
 
       &[data-badge-type="emoji"] {
         width: 1.25rem;
@@ -579,7 +565,6 @@ body:not(.admin-interface) {
 
         &:hover {
           background: var(--primary-very-low);
-          transform: scale(1.1);
         }
       }
     }
@@ -588,13 +573,13 @@ body:not(.admin-interface) {
   &__category {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 0.5rem;
   }
 
   &__desc {
     display: inline-block;
     color: var(--primary-medium);
-    line-height: 1.6;
+    line-height: 1.5;
 
     @include body-medium;
 
@@ -609,19 +594,18 @@ body:not(.admin-interface) {
     height: 2.5rem;
     margin-bottom: 0;
     margin-left: auto;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0.75rem;
     color: var(--primary-high);
     text-align: right;
     background: var(--primary-very-low);
     border: 1px solid var(--primary-low);
     border-radius: var(--rounded-md);
-    transition: all 0.2s ease;
+    transition: background-color 0.15s ease;
 
     @include body-medium;
 
     &:hover {
       background: var(--primary-low);
-      border-color: var(--tertiary-low);
     }
   }
 }
@@ -650,22 +634,22 @@ body:has(.admin-main-nav .nav-pills) {
     &::before {
       content: "📁";
       position: relative;
-      top: 0.15em;
+      top: 0.125em;
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 1.25rem;
-      height: 1.25rem;
+      width: 1rem;
+      height: 1rem;
       margin-right: var(--d-sidebar-section-link-prefix-margin-right);
-      font-size: 1.25rem;
+      font-size: 1rem;
       background: none;
     }
   }
 }
 
 .sidebar-section-link-wrapper[data-list-item-name="subcategory"] {
-  margin-left: 2.25em;
-  padding-left: 2.3em;
+  margin-left: 2rem;
+  padding-left: 2rem;
 
   .sidebar-section-link-prefix.span {
     width: unset;
@@ -680,9 +664,9 @@ body:has(.admin-main-nav .nav-pills) {
   .sidebar-section-link-prefix.span .prefix-badge {
     position: relative;
     top: unset;
-    width: 0.86em;
-    height: 0.86em;
-    margin-right: 0.15em;
+    width: 0.75em;
+    height: 0.75em;
+    margin-right: 0.125em;
     margin-left: -0.25em;
   }
 }

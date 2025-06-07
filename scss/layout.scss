@@ -8,7 +8,7 @@ html {
 
 html,
 body {
-  background: linear-gradient(135deg, var(--neutral-100) 0%, var(--neutral-95) 100%);
+  background: var(--neutral-100);
 
   @include viewport.until(md) {
     background: var(--neutral-95);
@@ -17,10 +17,10 @@ body {
 
 :root {
   --d-max-width: 84rem;
-  --wrap-px: 1.5rem;
-  --column-navigation-mini: 5rem;
-  --column-blocks: 20rem;
-  --column-navigation: minmax(0, 20rem);
+  --wrap-px: 1rem;
+  --column-navigation-mini: 4.5rem;
+  --column-blocks: 19rem;
+  --column-navigation: minmax(0, 18rem);
   --column-content: minmax(24rem, 1fr);
   --mobile-nav-h: 4.5rem;
 }
@@ -33,14 +33,14 @@ body {
   &.user-invites-page,
   &.user-summary-page {
     #main-outlet-wrapper #main-outlet {
-      padding-top: 1.5rem;
+      padding-top: 1rem;
     }
   }
 
   &.admin-interface {
     #main-outlet-wrapper #main-outlet {
-      padding-right: 1.5rem;
-      padding-left: 1.5rem;
+      padding-right: 1rem;
+      padding-left: 1rem;
     }
   }
 
@@ -86,7 +86,7 @@ body {
       grid-template-columns: var(--column-navigation) var(--column-content) var(
           --column-blocks
         );
-      column-gap: 2.5rem;
+      column-gap: 2rem;
       box-sizing: border-box;
       margin: 0 auto;
       padding: 0 var(--wrap-px) 0;
@@ -99,7 +99,7 @@ body {
         padding-left: 0;
 
         #main-outlet {
-          margin-right: 1.5rem;
+          margin-right: 1rem;
           margin-left: 0;
         }
       }
@@ -136,26 +136,21 @@ body {
       #main-outlet {
         grid-area: content;
         align-self: flex-start;
-        margin-top: 2.5rem;
-        margin-bottom: 2.5rem;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
         padding: 0;
         background: var(--neutral-100);
-        border: var(--border-outer);
-        border-radius: var(--rounded-xl);
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-        backdrop-filter: blur(10px);
-        overflow: hidden;
+        border: 1px solid var(--primary-low);
+        border-radius: var(--rounded-lg);
 
         @include viewport.until(lg) {
-          margin-top: 1.5rem;
+          margin-top: 1rem;
         }
 
         @include viewport.until(md) {
           margin: 0;
           border: 0;
           border-radius: 0;
-          box-shadow: none;
-          backdrop-filter: none;
         }
       }
     }
@@ -168,8 +163,8 @@ body {
       #main-outlet-wrapper #main-outlet {
         box-sizing: border-box;
         max-width: 100vw;
-        padding-right: 1.5rem;
-        padding-left: 1.5rem;
+        padding-right: 1rem;
+        padding-left: 1rem;
       }
     }
   }
@@ -178,47 +173,44 @@ body {
 #user-card {
   background-color: var(--neutral-100);
   border-radius: var(--rounded-lg);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
+  border: 1px solid var(--primary-low);
 }
 
-// Enhanced content areas
+// Чистые области контента
 .topic-body {
   background: var(--neutral-100);
-  border-radius: var(--rounded-lg);
-  margin-bottom: 1rem;
-  transition: all 0.2s ease;
+  border-radius: var(--rounded-md);
+  margin-bottom: 0.75rem;
+  transition: background-color 0.15s ease;
 
   &:hover {
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    background: var(--primary-very-low);
   }
 }
 
-// Improved post styling
+// Упрощенные посты
 .topic-post {
-  border-radius: var(--rounded-lg);
-  margin-bottom: 1.5rem;
-  transition: all 0.2s ease;
+  border-radius: var(--rounded-md);
+  margin-bottom: 1rem;
+  transition: background-color 0.15s ease;
 
   &:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    background: var(--primary-very-low);
   }
 }
 
-// Enhanced form elements
+// Минималистичные формы
 .form-kit {
   .form-kit__field {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     
     .form-kit__control {
-      border-radius: var(--rounded-lg);
+      border-radius: var(--rounded-md);
       border: 1px solid var(--primary-low);
-      transition: all 0.2s ease;
+      transition: border-color 0.15s ease;
       
       &:focus {
         border-color: var(--tertiary);
-        box-shadow: 0 0 0 3px rgba(var(--tertiary-rgb), 0.1);
       }
     }
   }
