@@ -12,40 +12,8 @@
   text-align: center;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, var(--tertiary) 0%, var(--quaternary) 100%);
+  background: var(--tertiary);
   color: var(--secondary);
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle at 70% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
-    pointer-events: none;
-  }
-
-  &::after {
-    content: "";
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: conic-gradient(from 0deg, transparent, rgba(255, 255, 255, 0.05), transparent);
-    animation: rotate 20s linear infinite;
-    pointer-events: none;
-  }
-
-  @keyframes rotate {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
 
   &__ctas {
     display: flex;
@@ -58,32 +26,9 @@
 
     a {
       padding: 0.75rem 2rem;
-      border-radius: var(--rounded-full);
+      border-radius: var(--rounded-lg);
       font-weight: 600;
       text-decoration: none;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      overflow: hidden;
-
-      &::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-        transition: left 0.5s ease;
-      }
-
-      &:hover::before {
-        left: 100%;
-      }
-
-      &:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-      }
 
       &.button--primary {
         background: var(--secondary);
@@ -113,8 +58,7 @@
     margin: 0;
     position: relative;
     z-index: 1;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    animation: fadeInUp 0.8s ease-out;
+    color: var(--secondary);
 
     @include headline-small;
   }
@@ -128,20 +72,9 @@
     margin-left: auto;
     margin-right: auto;
     line-height: 1.6;
-    animation: fadeInUp 0.8s ease-out 0.2s both;
+    color: var(--secondary);
 
     @include body-medium;
-  }
-
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
   }
 
   // Responsive design

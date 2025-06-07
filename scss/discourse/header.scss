@@ -4,11 +4,8 @@
   box-sizing: content-box;
   height: 3rem;
   padding: 0.75rem 0;
-  background: rgba(var(--secondary-rgb), 0.95);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(var(--primary-low-rgb), 0.3);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
+  background: var(--secondary);
+  border-bottom: 1px solid var(--primary-low);
 
   &-wrap {
     position: fixed;
@@ -46,14 +43,6 @@
     display: flex;
     grid-area: logo;
     flex-shrink: 0;
-
-    .logo {
-      transition: transform 0.2s ease;
-
-      &:hover {
-        transform: scale(1.05);
-      }
-    }
   }
 
   .d-header-mode {
@@ -83,10 +72,8 @@
       height: calc(1rem + 2px);
       padding: 0 0.25rem;
       color: var(--neutral-100);
-      background: linear-gradient(135deg, var(--love), var(--love-high));
+      background: var(--love);
       border: 2px solid var(--neutral-100);
-      box-shadow: 0 2px 8px rgba(var(--love-rgb), 0.3);
-      animation: pulse 2s ease-in-out infinite;
 
       @include label-small;
     }
@@ -108,52 +95,32 @@
       color: var(--neutral-10);
       background: none;
       border: 0;
-      border-radius: var(--rounded-full);
-      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      border-radius: var(--rounded-md);
       position: relative;
       overflow: hidden;
 
       @include hover;
 
-      &::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: radial-gradient(circle, rgba(var(--tertiary-rgb), 0.1) 0%, transparent 70%);
-        opacity: 0;
-        transition: opacity 0.2s ease;
-      }
-
       &:hover {
         color: var(--tertiary);
-        background: var(--tertiary-very-low);
+        background: var(--primary-very-low);
         border: 0;
-        transform: translateY(-1px);
-
-        &::before {
-          opacity: 1;
-        }
       }
 
       .avatar {
         width: 2rem;
         height: 2rem;
         border: 2px solid transparent;
-        transition: all 0.2s ease;
 
         &:hover {
           border-color: var(--tertiary);
-          box-shadow: 0 0 0 2px rgba(var(--tertiary-rgb), 0.2);
         }
       }
     }
 
     .active {
       .icon {
-        background: linear-gradient(135deg, var(--tertiary-very-low), var(--quaternary-very-low));
+        background: var(--tertiary-very-low);
         border: 1px solid var(--tertiary-low);
         color: var(--tertiary);
 
@@ -181,14 +148,12 @@
       }
 
       button {
-        background: linear-gradient(135deg, var(--tertiary-very-low), var(--quaternary-very-low));
+        background: var(--tertiary-very-low);
         border: 1px solid var(--tertiary-low);
 
         &:hover {
-          background: linear-gradient(135deg, var(--tertiary), var(--quaternary));
+          background: var(--tertiary);
           color: var(--secondary);
-          transform: translateY(-2px);
-          box-shadow: 0 4px 12px rgba(var(--tertiary-rgb), 0.3);
 
           .d-icon {
             color: var(--secondary);
@@ -203,34 +168,21 @@
       }
     }
   }
-
-  @keyframes pulse {
-    0%, 100% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.1);
-    }
-  }
 }
 
 .c-create__menu {
-  background: rgba(var(--secondary-rgb), 0.95);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(var(--primary-low-rgb), 0.3);
-  border-radius: var(--rounded-xl);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  background: var(--secondary);
+  border: 1px solid var(--primary-low);
+  border-radius: var(--rounded-lg);
 
   a {
     color: var(--neutral-10);
     padding: 0.75rem 1rem;
-    border-radius: var(--rounded-lg);
-    transition: all 0.2s ease;
+    border-radius: var(--rounded-md);
 
     &:hover {
-      background: var(--tertiary-very-low);
+      background: var(--primary-very-low);
       color: var(--tertiary);
-      transform: translateX(4px);
     }
   }
 }
@@ -259,14 +211,12 @@
     > .btn {
       .d-icon {
         color: var(--tertiary);
-        transition: all 0.2s ease;
       }
 
       .discourse-no-touch & {
         &:hover {
           .d-icon {
             color: var(--tertiary-high);
-            transform: scale(1.1);
           }
         }
       }
@@ -277,18 +227,10 @@
     > .btn .d-icon, // default button
     > svg {
       height: 0.75em;
-      transition: all 0.2s ease;
     }
 
     > .btn .d-icon-far-pen-to-square {
       height: 0.6em; // more consistent edit icon size
-    }
-
-    &:hover {
-      > .btn .d-icon,
-      > svg {
-        transform: scale(1.1);
-      }
     }
   }
 }
@@ -302,31 +244,12 @@
     position: absolute;
     z-index: 1;
     color: var(--tertiary);
-    transition: all 0.2s ease;
-  }
-
-  &:hover > .d-icon-bell {
-    color: var(--tertiary-high);
-    animation: ring 0.5s ease-in-out;
-  }
-
-  @keyframes ring {
-    0%, 100% {
-      transform: rotate(0deg);
-    }
-    25% {
-      transform: rotate(-10deg);
-    }
-    75% {
-      transform: rotate(10deg);
-    }
   }
 }
 
 .menu-panel {
   border: none;
-  border-radius: var(--rounded-xl);
-  background: rgba(var(--secondary-rgb), 0.95);
-  backdrop-filter: blur(20px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border-radius: var(--rounded-lg);
+  background: var(--secondary);
+  border: 1px solid var(--primary-low);
 }

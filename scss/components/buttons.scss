@@ -2,7 +2,6 @@
   display: flex;
   align-items: center;
   box-sizing: border-box;
-  transition: all 0.15s ease;
   cursor: pointer;
   border: none;
   font-weight: 500;
@@ -26,17 +25,17 @@
   }
 
   @if $style == tertiary {
-    background-color: var(--neutral-100);
+    background-color: var(--primary-very-low);
     border: 1px solid var(--primary-low);
     color: var(--primary-high) !important;
 
     &:hover {
-      background-color: var(--primary-very-low);
+      background-color: var(--primary-low);
       border-color: var(--primary-medium);
     }
 
     &:active {
-      background-color: var(--primary-low);
+      background-color: var(--primary-medium);
     }
 
     span {
@@ -100,7 +99,6 @@
   border: none;
   border-radius: var(--rounded-md);
   font-weight: 500;
-  transition: background-color 0.15s ease;
 
   @include label-small;
 
@@ -123,17 +121,16 @@
 
 // Исправляем дропдаун кнопки
 .select-kit.single-select.dropdown-select-box .select-kit-header {
-  background: var(--neutral-100);
-  border: 1px solid var(--primary-low);
+  background: var(--primary-very-low) !important;
+  border: 1px solid var(--primary-low) !important;
   border-radius: var(--rounded-md);
   color: var(--primary-high) !important;
   height: 2.5rem;
   padding: 0 1rem;
-  transition: all 0.15s ease;
 
   &:hover {
-    background: var(--primary-very-low);
-    border-color: var(--primary-medium);
+    background: var(--primary-low) !important;
+    border-color: var(--primary-medium) !important;
   }
 
   .select-kit-header-wrapper {
@@ -166,7 +163,6 @@
   border-radius: var(--rounded-md);
   color: var(--secondary) !important;
   font-weight: 600;
-  transition: background-color 0.15s ease;
 
   &:hover {
     background: var(--tertiary-hover) !important;
@@ -191,16 +187,13 @@
   border-radius: var(--rounded-md);
   color: var(--secondary) !important;
   font-weight: 600;
-  transition: all 0.15s ease;
 
   &:hover {
     background: var(--tertiary-hover) !important;
-    transform: translateY(-1px);
   }
 
   &:active {
     background: var(--tertiary-high) !important;
-    transform: translateY(0);
   }
 
   .d-button-label {
@@ -212,25 +205,29 @@
   }
 }
 
-// Вторичные кнопки
+// Вторичные кнопки - делаем их видимыми
 .btn-default, .btn {
-  background: var(--neutral-100) !important;
-  border: none !important;
+  background: var(--primary-very-low) !important;
+  border: 1px solid var(--primary-low) !important;
   border-radius: var(--rounded-md);
   color: var(--primary-high) !important;
   font-weight: 500;
-  transition: all 0.15s ease;
 
   &:hover {
-    background: var(--primary-very-low) !important;
+    background: var(--primary-low) !important;
+    border-color: var(--primary-medium) !important;
   }
 
   &:active {
-    background: var(--primary-low) !important;
+    background: var(--primary-medium) !important;
   }
 
   .d-button-label {
     color: var(--primary-high) !important;
+  }
+
+  .d-icon {
+    color: var(--primary-medium) !important;
   }
 }
 
@@ -241,7 +238,6 @@
   border-radius: var(--rounded-md);
   color: var(--secondary) !important;
   font-weight: 600;
-  transition: background-color 0.15s ease;
 
   &:hover {
     background: var(--love-low) !important;
@@ -259,11 +255,13 @@
 // Flat кнопки
 .btn-flat {
   background: transparent !important;
-  border: none !important;
+  border: 1px solid var(--primary-low) !important;
+  border-radius: var(--rounded-md);
   color: var(--primary-high) !important;
   
   &:hover {
     background: var(--primary-very-low) !important;
+    border-color: var(--primary-medium) !important;
   }
 
   .d-button-label {
@@ -273,12 +271,12 @@
 
 // Иконочные кнопки
 .btn-icon {
-  background: transparent !important;
-  border: none !important;
+  background: var(--primary-very-low) !important;
+  border: 1px solid var(--primary-low) !important;
   border-radius: var(--rounded-md);
   
   &:hover {
-    background: var(--primary-very-low) !important;
+    background: var(--primary-low) !important;
   }
 
   .d-icon {

@@ -7,17 +7,6 @@
   position: relative;
   overflow: hidden;
 
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(var(--tertiary-rgb), 0.03) 0%, rgba(var(--quaternary-rgb), 0.03) 100%);
-    pointer-events: none;
-  }
-
   &__date {
     color: var(--primary-medium);
     font-weight: 500;
@@ -30,70 +19,24 @@
 
   &__time {
     padding-bottom: 0.125rem;
-    background: linear-gradient(135deg, var(--primary-high), var(--tertiary));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--primary-high);
     font-weight: 700;
     position: relative;
     font-variant-numeric: tabular-nums;
-    animation: fadeIn 0.5s ease-in-out;
 
     @include title-large;
-
-    &::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      width: 20px;
-      height: 2px;
-      background: linear-gradient(90deg, var(--tertiary), var(--quaternary));
-      border-radius: var(--rounded-full);
-      transform: translateX(-50%);
-      animation: pulse 2s ease-in-out infinite;
-    }
-  }
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes pulse {
-    0%, 100% {
-      opacity: 0.5;
-      transform: translateX(-50%) scaleX(1);
-    }
-    50% {
-      opacity: 1;
-      transform: translateX(-50%) scaleX(1.2);
-    }
-  }
-
-  &:hover {
-    &__time::after {
-      animation-duration: 1s;
-    }
   }
 
   // Digital clock style variant
   &--digital {
-    background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+    background: #1a1a1a;
     color: #00ff88;
     border: 1px solid #333;
+    border-radius: var(--rounded-lg);
 
     .block-time__time {
       font-family: 'Courier New', monospace;
       color: #00ff88;
-      text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
-      -webkit-text-fill-color: #00ff88;
     }
 
     .block-time__date {
